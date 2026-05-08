@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPZYJV819H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPZYJV819H');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Danilo Vergara — Videographer & Photographer</title>
@@ -96,7 +104,7 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .contact-detail{font-size:13px;color:#888;margin-bottom:10px;display:flex;gap:12px}
 .contact-detail span:first-child{color:var(--dim);width:56px;flex-shrink:0}
 .contact-form{display:flex;flex-direction:column;gap:10px}
-.contact-form input,.contact-form textarea,.contact-form select,.form-input{background:var(--bg2);border:0.5px solid var(--border);border-radius:2px;padding:12px 14px;font-size:13px;color:#aaa;font-family:'DM Sans',sans-serif;width:100%;outline:none;transition:border-color 0.2s;margin-bottom:10px;box-sizing:border-box}
+.contact-form input,.contact-form textarea,.contact-form select{background:var(--bg2);border:0.5px solid var(--border);border-radius:2px;padding:12px 14px;font-size:13px;color:#aaa;font-family:'DM Sans',sans-serif;width:100%;outline:none;transition:border-color 0.2s}
 .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#444}
 .contact-form textarea{height:100px;resize:vertical}
 .contact-form select option{background:var(--bg2)}
@@ -190,7 +198,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="cat-header">
       
       <div class="cat-name">Events</div>
-      <div class="cat-count">4 videos</div>
+      <div class="cat-count">5 videos</div>
     </div>
     <div class="video-scroll-wrap">
       <div class="video-item" onclick="openVideo('jDaSAd4nMPw')">
@@ -207,10 +215,14 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       </div>
     </div>
     <div class="video-scroll-container" style="margin-top:10px">
-      <div class="more-badge">+ 1 more</div>
+      <div class="more-badge">+ 2 more</div>
       <div class="video-scroll-inner">
         <div class="video-item" onclick="openVideo('TUOBuKo5AOg')">
           <img class="video-thumb" src="https://img.youtube.com/vi/TUOBuKo5AOg/mqdefault.jpg" alt="Events video">
+          <div class="video-overlay"><div class="play-btn"></div></div>
+        </div>
+        <div class="video-item" onclick="openVideo('oCd8s0fehc0')">
+          <img class="video-thumb" src="https://img.youtube.com/vi/oCd8s0fehc0/mqdefault.jpg" alt="Events video">
           <div class="video-overlay"><div class="play-btn"></div></div>
         </div>
       </div>
@@ -416,24 +428,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       <div class="contact-detail"><span>Travel</span><span>Available worldwide</span></div>
     </div>
     <div class="contact-form">
-      <form action="https://formspree.io/f/xlgawgrj" method="POST" id="contactForm">
-        <input class="form-input" type="text" name="name" placeholder="Your name" required>
-        <input class="form-input" type="email" name="email" placeholder="Your email" required>
-        <select class="form-input" name="project">
-          <option value="" disabled selected>Type of project</option>
-          <option>Events</option>
-          <option>Construction</option>
-          <option>Documentary</option>
-          <option>Wedding</option>
-          <option>Corporate</option>
-          <option>Music &amp; Arts</option>
-          <option>Other</option>
-        </select>
-        <textarea class="form-input" name="message" placeholder="Tell me about your project..."></textarea>
-        <button type="submit" id="submitBtn">Send message</button>
-        <div id="formSuccess" style="display:none;color:#72c08a;font-size:13px;margin-top:10px;text-align:center">Message sent! I'll get back to you soon.</div>
-        <div id="formError" style="display:none;color:#e07070;font-size:13px;margin-top:10px;text-align:center">Something went wrong. Please try again.</div>
-      </form>
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Your email">
+      <select><option value="" disabled selected>Type of project</option><option>Events</option><option>Construction</option><option>Documentary</option><option>Wedding</option><option>Corporate</option><option>Music &amp; Arts</option><option>Other</option></select>
+      <textarea placeholder="Tell me about your project..."></textarea>
+      <button type="submit">Send message</button>
     </div>
   </div>
 </section>
@@ -474,39 +473,6 @@ function closeVideo(e){
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
-</script>
-<script>
-const form = document.getElementById('contactForm');
-if(form){
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const success = document.getElementById('formSuccess');
-    const error = document.getElementById('formError');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {'Accept': 'application/json'}
-      });
-      if(res.ok){
-        success.style.display = 'block';
-        error.style.display = 'none';
-        form.reset();
-        btn.textContent = 'Sent!';
-      } else {
-        throw new Error('Server error');
-      }
-    } catch(err){
-      error.style.display = 'block';
-      success.style.display = 'none';
-      btn.textContent = 'Send message';
-      btn.disabled = false;
-    }
-  });
-}
 </script>
 </body>
 </html>

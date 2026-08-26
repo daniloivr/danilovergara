@@ -389,12 +389,10 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   <div class="section-label">Services &amp; rates</div>
   <div class="section-title">What I Offer</div>
   <div class="services-grid">
-    <div class="service-card"><div class="service-num">01</div><div class="service-name">Events</div><div class="service-desc">Conferences, galas, community events, festivals. Full coverage from setup to highlight reel.</div><div class="service-price">From <strong>$500 / day</strong></div></div>
-    <div class="service-card"><div class="service-num">02</div><div class="service-name">Construction documentation</div><div class="service-desc">Progress documentation, time-lapse, drone aerial. Mining and heavy industry experience.</div><div class="service-price">From <strong>$500 / day</strong></div></div>
-    <div class="service-card"><div class="service-num">03</div><div class="service-name">Documentary</div><div class="service-desc">End-to-end documentary production. Field work in remote and Arctic locations. Indigenous storytelling.</div><div class="service-price">From <strong>$700 / day</strong></div></div>
-    <div class="service-card"><div class="service-num">04</div><div class="service-name">Weddings</div><div class="service-desc">Cinematic wedding films, highlight reels, full ceremony and reception coverage.</div><div class="service-price">From <strong>$2,500 / wedding</strong></div></div>
-    <div class="service-card"><div class="service-num">05</div><div class="service-name">Corporate</div><div class="service-desc">Brand videos, testimonials, training content, and promotional reels for businesses of all sizes.</div><div class="service-price">From <strong>$500 / day</strong></div></div>
-    <div class="service-card"><div class="service-num">06</div><div class="service-name">Music &amp; Arts</div><div class="service-desc">Music videos, live performance coverage, artist portraits, gallery and exhibition documentation.</div><div class="service-price">From <strong>$500 / day</strong></div></div>
+    <div class="service-card"><div class="service-num">01</div><div class="service-name">Corporate</div><div class="service-desc">Brand videos, testimonials, training content, and promotional reels for businesses of all sizes. Also covers conferences, galas, community events, festivals, and construction/industry progress documentation with drone aerial.</div><div class="service-price">From <strong>$800 / day</strong></div></div>
+    <div class="service-card"><div class="service-num">02</div><div class="service-name">Weddings</div><div class="service-desc">Cinematic wedding films (6-8 minutes), full ceremony and reception coverage, up to 8 hours.</div><div class="service-price">From <strong>$1,500 / wedding</strong></div></div>
+    <div class="service-card"><div class="service-num">03</div><div class="service-name">Music &amp; Arts</div><div class="service-desc">Music videos, live performance coverage, artist portraits, gallery and exhibition documentation.</div><div class="service-price">From <strong>$500 / day</strong></div></div>
+    <div class="service-card"><div class="service-num">04</div><div class="service-name">Documentary</div><div class="service-desc">End-to-end documentary production. Field work in remote and Arctic locations. Indigenous storytelling.</div><div class="service-price">From <strong>$700 / day</strong></div></div>
   </div>
 </section>
 
@@ -410,12 +408,53 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       <div class="contact-detail"><span>Travel</span><span>Available worldwide</span></div>
     </div>
     <div class="contact-form">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Your email">
-      <select><option value="" disabled selected>Type of project</option><option>Events</option><option>Construction</option><option>Documentary</option><option>Wedding</option><option>Corporate</option><option>Music &amp; Arts</option><option>Other</option></select>
-      <textarea placeholder="Tell me about your project..."></textarea>
-      <button type="submit">Send message</button>
+      <form action="https://formspree.io/f/xlgawgrj" method="POST" id="contactForm">
+        <input class="form-input" type="text" name="name" placeholder="Your name" required>
+        <input class="form-input" type="email" name="email" placeholder="Your email" required>
+        <select class="form-input" name="project">
+          <option value="" disabled selected>Type of project</option>
+          <option>Corporate</option>
+          <option>Wedding</option>
+          <option>Music &amp; Arts</option>
+          <option>Documentary</option>
+          <option>Other</option>
+        </select>
+        <textarea class="form-input" name="message" placeholder="Tell me about your project..."></textarea>
+        <button type="submit" id="submitBtn">Send message</button>
+        <div id="formSuccess" style="display:none;color:#72c08a;font-size:13px;margin-top:10px;text-align:center">Message sent! I'll get back to you soon.</div>
+        <div id="formError" style="display:none;color:#e07070;font-size:13px;margin-top:10px;text-align:center">Something went wrong. Please try again or email me directly.</div>
+      </form>
     </div>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+      const success = document.getElementById('formSuccess');
+      const error = document.getElementById('formError');
+      success.style.display = 'none';
+      error.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          success.style.display = 'block';
+          form.reset();
+        } else {
+          error.style.display = 'block';
+        }
+      }).catch(() => {
+        error.style.display = 'block';
+      }).finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      });
+    });
+    </script>
   </div>
 </section>
 

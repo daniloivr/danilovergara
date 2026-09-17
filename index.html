@@ -63,12 +63,20 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .video-featured-layout{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0}
 .video-featured-layout .video-item.featured{grid-row:1}
 .video-small-col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.video-scroll-container{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+.video-scroll-container{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;cursor:grab}
+.video-scroll-container.dragging{cursor:grabbing;user-select:none}
 .video-scroll-container::-webkit-scrollbar{height:3px}
 .video-scroll-container::-webkit-scrollbar-track{background:transparent}
 .video-scroll-container::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
 .video-scroll-inner{display:flex;gap:10px;width:max-content}
 .video-scroll-inner .video-item{width:280px;flex-shrink:0}
+.video-scroll-wrapper{position:relative}
+.scroll-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(20,20,20,0.75);border:1px solid rgba(255,255,255,0.15);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;opacity:0;transition:opacity 0.2s;font-size:16px}
+.video-scroll-wrapper:hover .scroll-arrow{opacity:1}
+.scroll-arrow.left{left:-6px}
+.scroll-arrow.right{right:-6px}
+.scroll-arrow:hover{background:rgba(232,160,32,0.85)}
+@media(max-width:768px){.scroll-arrow{display:none}}
 .more-badge{font-size:9px;letter-spacing:0.1em;color:#555;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .more-badge::after{content:'';flex:1;height:0.5px;background:#2a2a2a}
 .video-item{position:relative;cursor:pointer}
@@ -98,6 +106,10 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .gear-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
 .gear-tag{font-size:10px;color:var(--muted);border:0.5px solid var(--border);padding:4px 10px;border-radius:2px;letter-spacing:0.04em}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.clients-grid{display:grid;grid-template-columns:repeat(5,150px);justify-content:center;align-items:center;gap:36px;margin-top:24px}
+.client-logo{background:#fff;border-radius:10px;padding:18px 26px;display:flex;align-items:center;justify-content:center;width:150px;height:90px;transition:transform 0.2s}
+.client-logo:hover{transform:translateY(-3px)}
+.client-logo img{max-width:100%;max-height:100%;object-fit:contain}
 .service-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:3px;padding:24px 20px;transition:border-color 0.2s}
 .service-card:hover{border-color:#333}
 .service-num{font-size:10px;letter-spacing:0.12em;color:#555;margin-bottom:14px;text-transform:uppercase}
@@ -122,7 +134,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 .footer-links{display:flex;gap:24px}
 .footer-links a{font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
 .footer-links a:hover{color:#aaa}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.hero{padding:100px 20px 60px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.video-grid.cols-3,.video-grid.cols-4{grid-template-columns:repeat(2,1fr)}.video-grid.cols-2{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.hero{padding:100px 20px 60px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.video-grid.cols-3,.video-grid.cols-4{grid-template-columns:repeat(2,1fr)}.video-grid.cols-2{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center}.client-logo{width:120px;height:70px;padding:12px 18px}.clients-grid{grid-template-columns:repeat(3,100px);gap:16px}.client-logo[style*="grid-column:2"]{grid-column:auto!important}}
 </style>
 </head>
 <body>
@@ -404,6 +416,22 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   </div>
 </section>
 
+<section id="clients">
+  <div class="section-label">Trusted By</div>
+  <div class="clients-grid">
+    <div class="client-logo"><img src="logos/logo-amsterdam.png" alt="Amsterdam Brewery"></div>
+    <div class="client-logo"><img src="logos/logo-certapro.jpg" alt="CertaPro Painters"></div>
+    <div class="client-logo"><img src="logos/logo-dundaswest.png" alt="Dundas West Open Air Museum"></div>
+    <div class="client-logo"><img src="logos/logo-erudite.jpeg" alt="Erudite Private School"></div>
+    <div class="client-logo"><img src="logos/logo-nexus.jpg" alt="Nexus Collab"></div>
+    <div class="client-logo"><img src="logos/logo-hosper.jpeg" alt="Hosper Mortgage"></div>
+    <div class="client-logo"><img src="logos/logo-sskf.webp" alt="Safe Savvy Kids Foundation Canada"></div>
+    <div class="client-logo"><img src="logos/logo-stmichaels.jpg" alt="St. Michael's Unity Health Toronto"></div>
+    <div class="client-logo" style="padding:6px"><img src="logos/logo-vita.png" alt="Vita Psychology Centre"></div>
+    <div class="client-logo"><img src="logos/logo-levate.png" alt="L'Evate" style="max-width:65%;max-height:65%"></div>
+  </div>
+</section>
+
 <section id="services">
   <div class="section-label">Services &amp; rates</div>
   <div class="section-title">What I Offer</div>
@@ -513,6 +541,52 @@ function closeVideo(e){
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
+document.querySelectorAll('.video-scroll-container').forEach(c=>{
+  c.addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+      c.scrollLeft+=e.deltaY;
+      e.preventDefault();
+    }
+  },{passive:false});
+
+  // wrap in a positioned container and add prev/next arrow buttons
+  const wrap=document.createElement('div');
+  wrap.className='video-scroll-wrapper';
+  c.parentNode.insertBefore(wrap,c);
+  wrap.appendChild(c);
+  const leftBtn=document.createElement('div');
+  leftBtn.className='scroll-arrow left';
+  leftBtn.innerHTML='&#8249;';
+  const rightBtn=document.createElement('div');
+  rightBtn.className='scroll-arrow right';
+  rightBtn.innerHTML='&#8250;';
+  wrap.appendChild(leftBtn);
+  wrap.appendChild(rightBtn);
+  leftBtn.addEventListener('click',()=>c.scrollBy({left:-300,behavior:'smooth'}));
+  rightBtn.addEventListener('click',()=>c.scrollBy({left:300,behavior:'smooth'}));
+
+  // click-and-drag scrolling for mice without a scroll wheel / trackpad-only users
+  let isDown=false,startX=0,startScroll=0,moved=false;
+  c.addEventListener('mousedown',e=>{
+    isDown=true;moved=false;
+    c.classList.add('dragging');
+    startX=e.pageX;
+    startScroll=c.scrollLeft;
+  });
+  window.addEventListener('mouseup',()=>{isDown=false;c.classList.remove('dragging')});
+  c.addEventListener('mouseleave',()=>{isDown=false;c.classList.remove('dragging')});
+  c.addEventListener('mousemove',e=>{
+    if(!isDown)return;
+    const dx=e.pageX-startX;
+    if(Math.abs(dx)>5)moved=true;
+    c.scrollLeft=startScroll-dx;
+    e.preventDefault();
+  });
+  // prevent the video modal from opening right after a drag
+  c.addEventListener('click',e=>{
+    if(moved){e.stopPropagation();e.preventDefault();moved=false;}
+  },true);
+});
 </script>
 </body>
 </html>

@@ -565,6 +565,12 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       }).then(response => {
         if (response.ok) {
           success.style.display = 'block';
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              'event_category': 'contact_form',
+              'event_label': (form.querySelector('[name="project"]') || {}).value || 'unspecified'
+            });
+          }
           form.reset();
         } else {
           error.style.display = 'block';

@@ -98,12 +98,14 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 @media(max-width:768px){.scroll-arrow{display:none}}
 .more-badge{font-size:9px;letter-spacing:0.1em;color:#555;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .more-badge::after{content:'';flex:1;height:0.5px;background:#2a2a2a}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:6px}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:6px}
 .photo-item{border-radius:3px;overflow:hidden;background:var(--bg3);aspect-ratio:4/5;cursor:pointer}
 .photo-item img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.3s}
 .photo-item:hover img{transform:scale(1.04)}
 .more-wrap{margin-top:10px}
-@media(max-width:768px){.photo-grid{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}}
+#photoGridShown .photo-item:nth-child(n+9){display:none}
+@media(min-width:769px){#photoGridShown .photo-item:nth-child(n+9){display:block}}
+@media(max-width:768px){.photo-grid{grid-template-columns:repeat(auto-fit,minmax(80px,1fr))}}
 .photo-modal{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center}
 .photo-modal.open{display:flex}
 .photo-modal-inner{width:min(1100px,92vw);height:88vh;position:relative;display:flex;align-items:center;justify-content:center}
@@ -444,18 +446,18 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="photo-item" onclick="openPhoto(5)"><img src="photography/p06.jpg" loading="lazy" alt="Corporate photography"></div>
     <div class="photo-item" onclick="openPhoto(6)"><img src="photography/p07.jpg" loading="lazy" alt="Corporate photography"></div>
     <div class="photo-item" onclick="openPhoto(7)"><img src="photography/p08.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(8)"><img src="photography/p09.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(9)"><img src="photography/p10.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(10)"><img src="photography/p11.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(11)"><img src="photography/p12.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(12)"><img src="photography/p13.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(13)"><img src="photography/p14.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(14)"><img src="photography/p15.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item" onclick="openPhoto(15)"><img src="photography/p16.jpg" loading="lazy" alt="Corporate photography"></div>
   </div>
   <div class="more-wrap">
-    <div class="more-badge" id="photoMoreBadge" onclick="togglePhotoMore()" style="cursor:pointer">+ 40 more <span id="photoChev" style="display:inline-block;transition:transform .25s;font-size:9px;margin-left:4px">&#9660;</span></div>
+    <div class="more-badge" id="photoMoreBadge" onclick="togglePhotoMore()" style="cursor:pointer">+ <span id="photoMoreCount">40</span> more <span id="photoChev" style="display:inline-block;transition:transform .25s;font-size:9px;margin-left:4px">&#9660;</span></div>
     <div class="photo-grid" id="photoGridMore" style="display:none">
-    <div class="photo-item" onclick="openPhoto(8)"><img src="photography/p09.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(9)"><img src="photography/p10.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(10)"><img src="photography/p11.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(11)"><img src="photography/p12.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(12)"><img src="photography/p13.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(13)"><img src="photography/p14.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(14)"><img src="photography/p15.jpg" loading="lazy" alt="Photography"></div>
-    <div class="photo-item" onclick="openPhoto(15)"><img src="photography/p16.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(16)"><img src="photography/p17.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(17)"><img src="photography/p18.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(18)"><img src="photography/p19.jpg" loading="lazy" alt="Photography"></div>
@@ -498,6 +500,13 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     g.style.display = open ? 'none' : 'grid';
     c.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
   }
+  function updatePhotoMoreCount(){
+    var isDesktop = window.matchMedia('(min-width:769px)').matches;
+    var shown = isDesktop ? 16 : 8;
+    document.getElementById('photoMoreCount').textContent = 48 - shown;
+  }
+  updatePhotoMoreCount();
+  window.addEventListener('resize', updatePhotoMoreCount);
   </script>
 </section>
 

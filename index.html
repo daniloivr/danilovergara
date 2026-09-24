@@ -98,6 +98,12 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 @media(max-width:768px){.scroll-arrow{display:none}}
 .more-badge{font-size:9px;letter-spacing:0.1em;color:#555;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .more-badge::after{content:'';flex:1;height:0.5px;background:#2a2a2a}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.photo-item{border-radius:3px;overflow:hidden;background:var(--bg3);aspect-ratio:4/3}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s}
+.photo-item:hover img{transform:scale(1.04)}
+.more-wrap{margin-top:10px}
+@media(max-width:768px){.photo-grid{grid-template-columns:repeat(2,1fr)}}
 .video-item{position:relative;cursor:pointer}
 .video-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:3px;background:var(--bg3)}
 .video-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.35);border-radius:3px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s}
@@ -415,6 +421,75 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     </div>
   </div>
 
+</section>
+
+<section id="photography">
+  <div class="section-label">Portfolio</div>
+  <div class="section-title">PHOTOGRAPHY</div>
+  <div class="photo-grid" id="photoGridShown">
+    <div class="photo-item"><img src="photography/p01.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p02.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p03.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p04.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p05.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p06.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p07.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p08.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p09.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p10.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p11.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p12.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p13.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p14.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p15.jpg" loading="lazy" alt="Corporate photography"></div>
+    <div class="photo-item"><img src="photography/p16.jpg" loading="lazy" alt="Corporate photography"></div>
+  </div>
+  <div class="more-wrap">
+    <div class="more-badge" id="photoMoreBadge" onclick="togglePhotoMore()" style="cursor:pointer">+ 32 more <span id="photoChev" style="display:inline-block;transition:transform .25s;font-size:9px;margin-left:4px">&#9660;</span></div>
+    <div class="photo-grid" id="photoGridMore" style="display:none">
+      <div class="photo-item"><img src="photography/p17.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p18.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p19.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p20.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p21.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p22.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p23.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p24.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p25.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p26.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p27.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p28.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p29.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p30.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p31.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p32.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p33.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p34.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p35.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p36.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p37.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p38.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p39.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p40.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p41.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p42.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p43.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p44.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p45.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p46.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p47.jpg" loading="lazy" alt="Photography"></div>
+      <div class="photo-item"><img src="photography/p48.jpg" loading="lazy" alt="Photography"></div>
+    </div>
+  </div>
+  <script>
+  function togglePhotoMore(){
+    var g = document.getElementById('photoGridMore');
+    var c = document.getElementById('photoChev');
+    var open = g.style.display !== 'none';
+    g.style.display = open ? 'none' : 'grid';
+    c.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+  </script>
 </section>
 
 <section id="about">

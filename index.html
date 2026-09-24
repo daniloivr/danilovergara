@@ -154,6 +154,21 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 .footer-links a{font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
 .footer-links a:hover{color:#aaa}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.hero{padding:100px 20px 60px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.video-grid.cols-3,.video-grid.cols-4{grid-template-columns:repeat(2,1fr)}.video-grid.cols-2{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center}.client-logo{width:100px;height:64px;padding:10px 14px}.clients-grid{grid-template-columns:repeat(3,100px);gap:14px}.client-logo[style*="grid-column:2"]{grid-column:auto!important}}
+
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:4px;padding:32px}
+.testimonial-card[data-cat="wedding"] .testimonial-quote-mark{color:var(--c-wedding)}
+.testimonial-quote-mark{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--c-corporate);opacity:0.5;line-height:1;margin-bottom:8px}
+.testimonial-text{font-size:15px;color:#ccc;line-height:1.7;margin-bottom:24px}
+.testimonial-footer{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:0.5px solid var(--border)}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:#fff;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.testimonial-avatar img{width:100%;height:100%;object-fit:contain;padding:4px}
+.testimonial-avatar-initials{width:40px;height:40px;border-radius:50%;background:var(--bg3);border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--c-wedding)}
+.testimonial-name{font-size:13px;font-weight:500;color:#ddd}
+.testimonial-name a{color:inherit;text-decoration:none}
+.testimonial-name a:hover{color:#fff;text-decoration:underline}
+.testimonial-role{font-size:11px;color:var(--muted)}
+@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -430,6 +445,47 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
         <span class="gear-tag">After Effects</span>
         <span class="gear-tag">Lightroom · Photoshop</span>
         <span class="gear-tag">English · Español</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="testimonials">
+  <div class="section-label">What clients say</div>
+  <div class="section-title">TESTIMONIALS</div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&quot;</div>
+      <div class="testimonial-text">Danilo has covered multiple events for us and always delivers professional, reliable, and easy to work with. The photos and video turnaround were fast, and the quality made our event content look great across our channels. We'll keep working with him for future events.</div>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar"><img src="logo-amsterdam.png" alt="Amsterdam Brewing Co."></div>
+        <div>
+          <div class="testimonial-name"><a href="https://www.linkedin.com/in/leslie-quijano/" target="_blank" rel="noopener">Leslie Quijano</a></div>
+          <div class="testimonial-role">Amsterdam Brewing Co.</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">&quot;</div>
+      <div class="testimonial-text">We've worked with Danilo since 2018 covering our murals and events, and he's become someone we trust completely. He consistently delivers polished 4K video content, drone shots, documentary and social media clips that captures exactly what we need for our marketing. Reliable, creative, and always professional.</div>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar"><img src="logo-dundaswest.png" alt="Dundas West Open Air Museum"></div>
+        <div>
+          <div class="testimonial-name"><a href="https://www.linkedin.com/in/rardiles/" target="_blank" rel="noopener">Rodrigo Ardiles</a></div>
+          <div class="testimonial-role">Dundas West Open Air Museum</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card" data-cat="wedding">
+      <div class="testimonial-quote-mark">&quot;</div>
+      <div class="testimonial-text">Danilo and his team provided us with a great experience for our special day. He is patient and is very professional. He ensures he answers all our questions so we are always informed. He also delivered our photos and videos earlier than planned. Thank you again Danilo for your service! We highly would recommend him for weddings.</div>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar-initials">M&amp;S</div>
+        <div>
+          <div class="testimonial-name">Michael &amp; Summer</div>
+          <div class="testimonial-role">Wedding Videography &amp; Photography</div>
+        </div>
       </div>
     </div>
   </div>

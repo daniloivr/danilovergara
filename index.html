@@ -8,6 +8,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LPZYJV819H');
+  function trackContact(method, location){ gtag('event', 'contact_click', { 'method': method, 'location': location }); }
+  function trackSocial(network){ gtag('event', 'social_click', { 'network': network }); }
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,13 +36,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0e0e0e;--bg2:#161616;--bg3:#1e1e1e;--border:rgba(255,255,255,0.07);--text:#e8e8e8;--muted:#666;--dim:#333;--c-documentary:#72c08a;--c-wedding:#d4788a;--c-corporate:#a898d4;--c-music:#d4885a}
+:root{--bg:#0e0e0e;--bg2:#161616;--bg3:#1e1e1e;--border:rgba(255,255,255,0.14);--text:#e8e8e8;--muted:#b0b0b0;--dim:#8a8a8a;--c-documentary:#72c08a;--c-wedding:#d4788a;--c-corporate:#a898d4;--c-music:#d4885a}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px;background:rgba(14,14,14,0.95);border-bottom:0.5px solid var(--border);backdrop-filter:blur(12px)}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.12em;color:#fff}
 .nav-links{display:flex;gap:32px}
-.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a{font-size:13px;color:#ddd;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:#fff}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 80px;position:relative;overflow:hidden}
 .hero-bg-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;z-index:0;opacity:0.55}
@@ -50,30 +52,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero>*:not(.hero-grain):not(.hero-vignette):not(.hero-bg-video):not(.hero-dark-overlay){position:relative;z-index:2}
 .hero-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(8,1fr);gap:1px;opacity:0.04;pointer-events:none}
 .hero-grid div{background:#fff}
-.hero-eyebrow{font-size:11px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:24px}
+.hero-eyebrow{font-size:13px;letter-spacing:0.2em;color:#e0e0e0;text-transform:uppercase;margin-bottom:24px}
 .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,12vw,140px);line-height:0.9;color:#fff;letter-spacing:0.04em;margin-bottom:32px}
 .hero-cats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
-.hero-cat{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px;border:0.5px solid var(--border);color:var(--muted);opacity:0.8}
+.hero-cat{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.3);color:#e8e8e8}
 .hero-cta{display:flex;gap:14px}
-.btn{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:12px 28px;border-radius:2px;text-decoration:none;cursor:pointer;transition:all 0.2s}
+.btn{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:12px 28px;border-radius:2px;text-decoration:none;cursor:pointer;transition:all 0.2s}
 .btn-white{background:#fff;color:#0e0e0e;border:none}
 .btn-white:hover{background:#ddd}
-.btn-outline{background:transparent;color:#aaa;border:0.5px solid #444}
-.btn-outline:hover{border-color:#888;color:#fff}
+.btn-outline{background:transparent;color:#fff;border:1px solid #bbb}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
 section{padding:80px 48px;border-top:0.5px solid var(--border)}
-.section-label{font-size:10px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.section-label{font-size:12px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:0.06em;color:#fff;margin-bottom:32px}
 .filter-tabs{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:40px;border-bottom:0.5px solid var(--border);padding-bottom:16px}
-.filter-tab{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0 0 4px;cursor:pointer;background:transparent;color:var(--muted);border:none;border-bottom:1.5px solid transparent;transition:all 0.2s;font-family:'DM Sans',sans-serif}
-.filter-tab.active{color:#e8e8e8;border-bottom:1.5px solid #e8e8e8}
-.filter-tab:hover{color:#aaa}
+.filter-tab{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;padding:0 0 4px;cursor:pointer;background:transparent;color:var(--muted);border:none;border-bottom:1.5px solid transparent;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.filter-tab.active{color:#fff;border-bottom:1.5px solid #fff}
+.filter-tab:hover{color:#fff}
 .cat-block{margin-bottom:56px}
 .cat-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:0.5px solid var(--border)}
 
-.cat-block[data-cat="wedding"] .cat-header{border-bottom:0.5px solid rgba(212,120,138,0.35)}
-.cat-block[data-cat="wedding"] .cat-name{color:var(--c-wedding)}
-.cat-name{font-size:14px;font-weight:500;color:#bbb}
-.cat-count{font-size:11px;color:var(--muted)}
+.cat-name{font-size:16px;font-weight:500;color:#fff}
+.cat-count{font-size:13px;color:var(--muted)}
 .video-grid{display:grid;gap:10px}
 .video-grid.cols-2{grid-template-columns:repeat(2,1fr)}
 .video-grid.cols-3{grid-template-columns:repeat(3,1fr)}
@@ -96,13 +96,16 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .scroll-arrow.right{right:-6px}
 .scroll-arrow:hover{background:rgba(232,160,32,0.85)}
 @media(max-width:768px){.scroll-arrow{display:none}}
-.more-badge{font-size:9px;letter-spacing:0.1em;color:#555;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.more-badge{font-size:11px;letter-spacing:0.1em;color:#aaa;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .more-badge::after{content:'';flex:1;height:0.5px;background:#2a2a2a}
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:6px}
 .photo-item{border-radius:3px;overflow:hidden;background:var(--bg3);aspect-ratio:4/5;cursor:pointer}
 .photo-item img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.3s}
 .photo-item:hover img{transform:scale(1.04)}
 .more-wrap{margin-top:10px}
+.more-btn{display:flex;align-items:center;gap:10px;margin:24px auto 20px;background:transparent;color:#fff;border:1px solid #fff;border-radius:999px;padding:13px 30px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,color 0.2s}
+.more-btn:hover{background:#fff;color:#0e0e0e}
+.more-btn-chev{display:inline-block;font-size:11px;transition:transform .25s}
 #photoGridShown .photo-item:nth-child(n+9){display:none}
 @media(min-width:769px){#photoGridShown .photo-item:nth-child(n+9){display:block}}
 @media(max-width:768px){.photo-grid{grid-template-columns:repeat(auto-fit,minmax(80px,1fr))}}
@@ -132,45 +135,58 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .about-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;border:0.5px solid var(--border);display:block}
 .about-photo-badge{position:absolute;bottom:16px;left:0;right:0;margin:0 14px;background:rgba(0,0,0,0.82);border:0.5px solid var(--border);border-radius:3px;padding:10px 14px;backdrop-filter:blur(8px)}
 .about-photo-badge-name{font-size:13px;font-weight:500;color:#ddd}
-.about-photo-badge-sub{font-size:10px;color:var(--muted);margin-top:3px}
+.about-photo-badge-sub{font-size:12px;color:var(--muted);margin-top:3px}
 .about-content h2{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:0.05em;color:#fff;line-height:1.1;margin-bottom:20px}
 .about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
 .stat{background:var(--bg2);border:0.5px solid var(--border);border-radius:3px;padding:14px;text-align:center}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.05em;color:#ddd}
-.stat-label{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.05em}
-.about-text{font-size:13px;color:#777;line-height:1.8;margin-bottom:16px}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.05em}
+.about-text{font-size:16px;color:#d6d6d6;line-height:1.8;margin-bottom:16px}
 .gear-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
-.gear-tag{font-size:10px;color:var(--muted);border:0.5px solid var(--border);padding:4px 10px;border-radius:2px;letter-spacing:0.04em}
+.gear-tag{font-size:12px;color:#d0d0d0;border:0.5px solid var(--border);padding:4px 10px;border-radius:2px;letter-spacing:0.04em}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.video-cta{margin-left:auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+.video-cta-text{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.05em;color:#fff}
+.video-cta-btns{display:flex;gap:10px}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s}
+.icon-btn:hover{background:#fff;color:#0e0e0e}
+.icon-btn svg,.footer-links svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .clients-grid{display:grid;grid-template-columns:repeat(5,150px);justify-content:center;align-items:center;gap:36px;margin-top:24px}
 .client-logo{background:#fff;border-radius:10px;padding:18px 26px;display:flex;align-items:center;justify-content:center;width:150px;height:90px;transition:transform 0.2s}
 .client-logo:hover{transform:translateY(-3px)}
 .client-logo img{max-width:100%;max-height:100%;object-fit:contain}
 .service-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:3px;padding:24px 20px;transition:border-color 0.2s}
-.service-card:hover{border-color:#333}
-.service-num{font-size:10px;letter-spacing:0.12em;color:#555;margin-bottom:14px;text-transform:uppercase}
-.service-name{font-size:14px;font-weight:500;color:#ddd;margin-bottom:8px}
-.service-desc{font-size:12px;color:#666;line-height:1.7;margin-bottom:16px}
-.service-price{font-size:13px;color:#888;border-top:0.5px solid var(--border);padding-top:14px}
-.service-price strong{color:#bbb}
+.service-card:hover{border-color:#555}
+.service-num{font-size:13px;letter-spacing:0.12em;color:#999;margin-bottom:14px;text-transform:uppercase}
+.service-name{font-size:20px;font-weight:500;color:#fff;margin-bottom:8px}
+.service-desc{font-size:15px;color:#d0d0d0;line-height:1.7;margin-bottom:16px}
+.service-price{font-size:15px;color:#ccc;border-top:0.5px solid var(--border);padding-top:14px}
+.service-price strong{color:#fff}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .contact-info h2{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:0.05em;color:#fff;margin-bottom:16px}
-.contact-info p{font-size:13px;color:#666;line-height:1.8;margin-bottom:24px}
-.contact-detail{font-size:13px;color:#888;margin-bottom:10px;display:flex;gap:12px}
-.contact-detail span:first-child{color:var(--dim);width:56px;flex-shrink:0}
+.contact-info p{font-size:16px;color:#d0d0d0;line-height:1.8;margin-bottom:24px}
+.contact-detail{font-size:16px;color:#f0f0f0;margin-bottom:10px;display:flex;gap:12px}
+.contact-detail span:first-child{color:#999;width:64px;flex-shrink:0}
+.contact-detail a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#666}
+.contact-detail a:hover{color:#fff}
 .contact-form{display:flex;flex-direction:column;gap:10px}
-.contact-form input,.contact-form textarea,.contact-form select{background:var(--bg2);border:0.5px solid var(--border);border-radius:2px;padding:12px 14px;font-size:13px;color:#aaa;font-family:'DM Sans',sans-serif;width:100%;outline:none;transition:border-color 0.2s}
-.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#444}
+.form-intro h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.05em;color:#fff;margin-bottom:8px}
+.form-intro p{font-size:15px;color:#d0d0d0;line-height:1.7;margin-bottom:10px}
+.contact-form input,.contact-form textarea,.contact-form select{background:#fff;border:1px solid #fff;border-radius:2px;padding:13px 14px;font-size:15px;color:#111;font-family:'DM Sans',sans-serif;width:100%;outline:none;transition:border-color 0.2s}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#888;box-shadow:0 0 0 2px rgba(255,255,255,0.35)}
+.contact-form ::placeholder{color:#666}
 .contact-form textarea{height:100px;resize:vertical}
-.contact-form select option{background:var(--bg2)}
-.contact-form button{background:#fff;color:#111;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:13px;border:none;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:background 0.2s;margin-top:4px}
+#contactForm{display:flex;flex-direction:column;gap:10px}
+.contact-form select option{background:#fff;color:#111}
+.contact-form button{background:#fff;color:#111;font-size:13px;border:1px solid #fff !important;letter-spacing:0.1em;text-transform:uppercase;padding:13px;border:none;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:background 0.2s;margin-top:4px}
 .contact-form button:hover{background:#ddd}
 footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-between;border-top:0.5px solid var(--border);background:#0a0a0a}
-.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;color:var(--dim)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;color:#999}
 .footer-links{display:flex;gap:24px}
-.footer-links a{font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
-.footer-links a:hover{color:#aaa}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.hero{padding:100px 20px 60px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.video-grid.cols-3,.video-grid.cols-4{grid-template-columns:repeat(2,1fr)}.video-grid.cols-2{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center}.client-logo{width:100px;height:64px;padding:10px 14px}.clients-grid{grid-template-columns:repeat(3,100px);gap:14px}.client-logo[style*="grid-column:2"]{grid-column:auto!important}}
+.footer-links a{color:#ddd;display:flex;transition:color 0.2s}
+.footer-links a:hover{color:#fff}
+.footer-links svg{width:28px;height:28px}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.hero{padding:100px 20px 60px}.about-grid{grid-template-columns:1fr}.about-stats{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.cat-header{flex-wrap:wrap}.video-cta{order:-1;margin-left:0;width:100%;justify-content:flex-start;margin-bottom:14px}.contact-grid{grid-template-columns:1fr}.video-grid.cols-3,.video-grid.cols-4{grid-template-columns:repeat(2,1fr)}.video-grid.cols-2{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center}.client-logo{width:100px;height:64px;padding:10px 14px}.clients-grid{grid-template-columns:repeat(3,100px);gap:14px}.client-logo[style*="grid-column:2"]{grid-column:auto!important}}
 
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:4px;padding:32px}
@@ -184,7 +200,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 .testimonial-name{font-size:13px;font-weight:500;color:#ddd}
 .testimonial-name a{color:inherit;text-decoration:none}
 .testimonial-name a:hover{color:#fff;text-decoration:underline}
-.testimonial-role{font-size:11px;color:var(--muted)}
+.testimonial-role{font-size:12px;color:var(--muted)}
 @media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -224,7 +240,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   </div>
   <div class="hero-cta">
     <a href="#portfolio" class="btn btn-white">View portfolio</a>
-    <a href="#contact" class="btn btn-outline">Get a Quote</a>
+    <a href="#contact" class="btn btn-outline">Get a free quote</a>
   </div>
 </div>
 
@@ -329,6 +345,13 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       
       <div class="cat-name">Wedding</div>
       <div class="cat-count">6 videos</div>
+      <div class="video-cta">
+        <div class="video-cta-text">Have questions? Let me help you</div>
+        <div class="video-cta-btns">
+          <a class="icon-btn" href="https://wa.me/16476095296?text=Hi%20Danilo!%20I%20found%20your%20website%20and%20have%20a%20question%20about%20a%20project." target="_blank" rel="noopener" aria-label="WhatsApp Danilo" title="WhatsApp" onclick="trackContact('whatsapp','portfolio_wedding')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path transform="translate(7.6 7.4) scale(0.38)" stroke-width="5" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a class="icon-btn" href="mailto:danilo.ivr@gmail.com?subject=Project%20inquiry%20from%20your%20website" aria-label="Email Danilo" title="Email" onclick="trackContact('email','portfolio_wedding')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
     </div>
     <div class="video-scroll-wrap">
       <div class="video-item" onclick="openVideo('87Mx2E0fhuA')">
@@ -415,6 +438,13 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       
       <div class="cat-name">Documentary</div>
       <div class="cat-count">3 videos</div>
+      <div class="video-cta">
+        <div class="video-cta-text">Let&rsquo;s chat!</div>
+        <div class="video-cta-btns">
+          <a class="icon-btn" href="https://wa.me/16476095296?text=Hi%20Danilo!%20I%20found%20your%20website%20and%20have%20a%20question%20about%20a%20project." target="_blank" rel="noopener" aria-label="WhatsApp Danilo" title="WhatsApp" onclick="trackContact('whatsapp','portfolio_documentary')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path transform="translate(7.6 7.4) scale(0.38)" stroke-width="5" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a class="icon-btn" href="mailto:danilo.ivr@gmail.com?subject=Project%20inquiry%20from%20your%20website" aria-label="Email Danilo" title="Email" onclick="trackContact('email','portfolio_documentary')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
     </div>
     <div class="video-scroll-wrap">
       <div class="video-item" onclick="openVideo('FlT5Q9szrHk')">
@@ -456,7 +486,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="photo-item" onclick="openPhoto(15)"><img src="photography/p16.jpg" loading="lazy" alt="Corporate photography"></div>
   </div>
   <div class="more-wrap">
-    <div class="more-badge" id="photoMoreBadge" onclick="togglePhotoMore()" style="cursor:pointer">+ <span id="photoMoreCount">40</span> more <span id="photoChev" style="display:inline-block;transition:transform .25s;font-size:9px;margin-left:4px">&#9660;</span></div>
+    <button type="button" class="more-btn" id="photoMoreBadge" onclick="togglePhotoMore()" aria-expanded="false"><span id="photoMoreLabel">View <span id="photoMoreCount">40</span> more photos</span> <span id="photoChev" class="more-btn-chev">&#9660;</span></button>
     <div class="photo-grid" id="photoGridMore" style="display:none">
     <div class="photo-item" onclick="openPhoto(16)"><img src="photography/p17.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(17)"><img src="photography/p18.jpg" loading="lazy" alt="Photography"></div>
@@ -499,11 +529,15 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     var open = g.style.display !== 'none';
     g.style.display = open ? 'none' : 'grid';
     c.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    document.getElementById('photoMoreBadge').setAttribute('aria-expanded', !open);
+    document.getElementById('photoMoreLabel').innerHTML = open ? 'View <span id="photoMoreCount"></span> more photos' : 'Show fewer photos';
+    if (open) updatePhotoMoreCount();
   }
   function updatePhotoMoreCount(){
     var isDesktop = window.matchMedia('(min-width:769px)').matches;
     var shown = isDesktop ? 16 : 8;
-    document.getElementById('photoMoreCount').textContent = 48 - shown;
+    var el = document.getElementById('photoMoreCount');
+    if (el) el.textContent = 48 - shown;
   }
   updatePhotoMoreCount();
   window.addEventListener('resize', updatePhotoMoreCount);
@@ -617,15 +651,20 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="contact-info">
       <h2>Let's work together</h2>
       <p>Available for all types of production across Toronto, GTA, and internationally. Remote and expedition work welcome.</p>
-      <div class="contact-detail"><span>Email</span><span>danilo.ivr@gmail.com</span></div>
-      <div class="contact-detail"><span>Phone</span><span>+1 647 609 5296</span></div>
+      <div class="contact-detail"><span>Email</span><a href="mailto:danilo.ivr@gmail.com" onclick="trackContact('email','contact_section')">danilo.ivr@gmail.com</a></div>
+      <div class="contact-detail"><span>Phone</span><a href="tel:+16476095296" onclick="trackContact('phone','contact_section')">+1 647 609 5296</a></div>
       <div class="contact-detail"><span>Based</span><span>Toronto, ON, Canada</span></div>
       <div class="contact-detail"><span>Travel</span><span>Available worldwide</span></div>
     </div>
     <div class="contact-form">
+      <div class="form-intro">
+        <h3>Book a free call!</h3>
+        <p>We&rsquo;ll discuss your video project, clear up any questions you have, and suggest ideas that fit your goals and budget, then map out the next steps in the creative process.</p>
+      </div>
       <form action="https://formspree.io/f/xlgawgrj" method="POST" id="contactForm">
         <input class="form-input" type="text" name="name" placeholder="Your name" required>
         <input class="form-input" type="email" name="email" placeholder="Your email" required>
+        <input class="form-input" type="tel" name="phone" placeholder="Your phone number (optional)">
         <select class="form-input" name="project">
           <option value="" disabled selected>Type of project</option>
           <option>Corporate</option>
@@ -682,10 +721,9 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <footer>
   <div class="footer-logo">Danilo Vergara &copy; 2026</div>
   <div class="footer-links">
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-    <a href="https://vimeo.com" target="_blank">Vimeo</a>
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    <a href="https://glimmer.io" target="_blank">Glimmer</a>
+    <a href="https://www.instagram.com/yo.soy.danilo/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" onclick="trackSocial('instagram')"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="https://www.linkedin.com/in/danilo-vergara-b8015065/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" onclick="trackSocial('linkedin')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="https://www.bark.com/en/ca/b/danilo-vergara-videography-amp-photography-services/wJo3YN/" target="_blank" rel="noopener" aria-label="Bark" title="Bark" onclick="trackSocial('bark')"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><text x="12" y="16.6" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="500" fill="currentColor" stroke="none">b</text></svg></a>
   </div>
 </footer>
 

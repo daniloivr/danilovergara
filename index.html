@@ -8,6 +8,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LPZYJV819H');
+  gtag('config', 'AW-18564245385');
   function trackContact(method, location){ gtag('event', 'contact_click', { 'method': method, 'location': location }); }
   function trackSocial(network){ gtag('event', 'social_click', { 'network': network }); }
 </script>
@@ -129,6 +130,11 @@ section{padding:80px 48px;border-top:0.5px solid var(--border)}
 .video-modal.open{display:flex}
 .modal-inner{width:min(900px,90vw);position:relative}
 .modal-inner iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:4px}
+.video-item.vertical{aspect-ratio:16/9;overflow:hidden;border-radius:3px;background:#000}
+.video-item.vertical .vbg{position:absolute;inset:0;background-size:316% auto;background-position:center;filter:blur(16px) brightness(.5);transform:scale(1.2)}
+.video-item.vertical .video-thumb{position:absolute;left:50%;top:0;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%);object-fit:cover;border-radius:0;background:transparent}
+.modal-inner.vertical{width:min(90vw,calc(86vh*9/16))}
+.modal-inner.vertical iframe{aspect-ratio:9/16}
 .modal-close{position:absolute;top:-40px;right:0;background:transparent;border:none;color:#fff;font-size:28px;cursor:pointer;line-height:1}
 .about-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
 .about-photo{position:relative}
@@ -261,7 +267,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="cat-header">
       
       <div class="cat-name">Corporate</div>
-      <div class="cat-count">17 videos</div>
+      <div class="cat-count">19 videos</div>
     </div>
     <div class="video-scroll-wrap">
       <div class="video-item" onclick="openVideo('ByIUZRomSSA')">
@@ -278,8 +284,18 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       </div>
     </div>
     <div class="video-scroll-container" style="margin-top:10px">
-      <div class="more-badge">+ 14 more</div>
+      <div class="more-badge">+ 16 more</div>
       <div class="video-scroll-inner">
+        <div class="video-item vertical" onclick="openVideo('Kl-3dyMAxYU',true)">
+          <span class="vbg" style="background-image:url(https://img.youtube.com/vi/Kl-3dyMAxYU/mqdefault.jpg)"></span>
+          <img class="video-thumb" data-yt="Kl-3dyMAxYU" src="https://img.youtube.com/vi/Kl-3dyMAxYU/mqdefault.jpg" alt="Corporate video (vertical)">
+          <div class="video-overlay"><div class="play-btn"></div></div>
+        </div>
+        <div class="video-item vertical" onclick="openVideo('-7Av1VYcUyg',true)">
+          <span class="vbg" style="background-image:url(https://img.youtube.com/vi/-7Av1VYcUyg/mqdefault.jpg)"></span>
+          <img class="video-thumb" data-yt="-7Av1VYcUyg" src="https://img.youtube.com/vi/-7Av1VYcUyg/mqdefault.jpg" alt="Corporate video (vertical)">
+          <div class="video-overlay"><div class="play-btn"></div></div>
+        </div>
         <div class="video-item" onclick="openVideo('SI3kSlLTfJY')">
           <img class="video-thumb" src="https://img.youtube.com/vi/SI3kSlLTfJY/mqdefault.jpg" alt="Corporate video">
           <div class="video-overlay"><div class="play-btn"></div></div>
@@ -486,7 +502,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="photo-item" onclick="openPhoto(15)"><img src="photography/p16.jpg" loading="lazy" alt="Corporate photography"></div>
   </div>
   <div class="more-wrap">
-    <button type="button" class="more-btn" id="photoMoreBadge" onclick="togglePhotoMore()" aria-expanded="false"><span id="photoMoreLabel">View <span id="photoMoreCount">40</span> more photos</span> <span id="photoChev" class="more-btn-chev">&#9660;</span></button>
+    <button type="button" class="more-btn" id="photoMoreBadge" onclick="togglePhotoMore()" aria-expanded="false"><span id="photoMoreLabel">View <span id="photoMoreCount">37</span> more photos</span> <span id="photoChev" class="more-btn-chev">&#9660;</span></button>
     <div class="photo-grid" id="photoGridMore" style="display:none">
     <div class="photo-item" onclick="openPhoto(16)"><img src="photography/p17.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(17)"><img src="photography/p18.jpg" loading="lazy" alt="Photography"></div>
@@ -520,6 +536,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="photo-item" onclick="openPhoto(45)"><img src="photography/p46.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(46)"><img src="photography/p47.jpg" loading="lazy" alt="Photography"></div>
     <div class="photo-item" onclick="openPhoto(47)"><img src="photography/p48.jpg" loading="lazy" alt="Photography"></div>
+    <div class="photo-item" onclick="openPhoto(48)"><img src="photography/p49.jpg" loading="lazy" alt="Corporate portrait photography"></div>
+    <div class="photo-item" onclick="openPhoto(49)"><img src="photography/p50.jpg" loading="lazy" alt="Corporate portrait photography"></div>
+    <div class="photo-item" onclick="openPhoto(50)"><img src="photography/p51.jpg" loading="lazy" alt="Corporate event photography"></div>
+    <div class="photo-item" onclick="openPhoto(51)"><img src="photography/p52.jpg" loading="lazy" alt="Corporate event photography"></div>
+    <div class="photo-item" onclick="openPhoto(52)"><img src="photography/p53.jpg" loading="lazy" alt="Corporate event photography"></div>
     </div>
   </div>
   <script>
@@ -537,7 +558,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     var isDesktop = window.matchMedia('(min-width:769px)').matches;
     var shown = isDesktop ? 16 : 8;
     var el = document.getElementById('photoMoreCount');
-    if (el) el.textContent = 48 - shown;
+    if (el) el.textContent = 53 - shown;
   }
   updatePhotoMoreCount();
   window.addEventListener('resize', updatePhotoMoreCount);
@@ -559,12 +580,12 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       <div class="about-stats">
         <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years experience</div></div>
         <div class="stat"><div class="stat-num">4</div><div class="stat-label">Specialties</div></div>
-        <div class="stat"><div class="stat-num">34</div><div class="stat-label">Videos</div></div>
+        <div class="stat"><div class="stat-num">36</div><div class="stat-label">Videos</div></div>
         <div class="stat"><div class="stat-num">2</div><div class="stat-label">Languages</div></div>
       </div>
       <p class="about-text">I'm a Toronto-based videographer and photographer with over 10 years behind the camera. My focus is corporate video, weddings, and music &amp; arts coverage, grounded in a documentary approach. I'm drawn to authentic moments, and I capture them honestly, making every project feel like a film. Bachelor's degree in Filmmaking, DUOC UC, Chile. Fluent in English and Spanish.</p>
       <div class="gear-tags">
-        <span class="gear-tag">Sony A7III / A7IV</span>
+        <span class="gear-tag">Sony A7 V / A7 IV</span>
         <span class="gear-tag">DJI Drone · Transport Canada</span>
         <span class="gear-tag">Gimbal · Wireless mics</span>
         <span class="gear-tag">Adobe Premiere Pro</span>
@@ -702,6 +723,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
               'event_category': 'contact_form',
               'event_label': (form.querySelector('[name="project"]') || {}).value || 'unspecified'
             });
+            gtag('event', 'conversion', { 'send_to': 'AW-18564245385/kO7GCPnF5LQdEInPj5RF' });
           }
           form.reset();
         } else {
@@ -752,7 +774,8 @@ function filterCat(cat,btn){
     b.style.display=(cat==='all'||b.dataset.cat===cat)?'block':'none';
   });
 }
-function openVideo(id){
+function openVideo(id,vertical){
+  document.querySelector('#videoModal .modal-inner').classList.toggle('vertical',!!vertical);
   document.getElementById('modalFrame').src='https://www.youtube.com/embed/'+id+'?autoplay=1';
   document.getElementById('videoModal').classList.add('open');
 }
@@ -763,8 +786,16 @@ function closeVideo(e){
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
+// vertical videos: try the HD thumbnail, fall back to the standard one
+document.querySelectorAll('.video-item.vertical .video-thumb').forEach(function(img){
+  var fb='https://img.youtube.com/vi/'+img.dataset.yt+'/mqdefault.jpg';
+  function fall(){if(img.src!==fb)img.src=fb}
+  img.addEventListener('error',fall);
+  img.addEventListener('load',function(){if(img.naturalWidth<=120)fall()});
+  img.src='https://img.youtube.com/vi/'+img.dataset.yt+'/maxresdefault.jpg';
+});
 var PHOTOS = [];
-for(var _i=1;_i<=48;_i++){PHOTOS.push('photography/p'+(_i<10?'0'+_i:_i)+'.jpg');}
+for(var _i=1;_i<=53;_i++){PHOTOS.push('photography/p'+(_i<10?'0'+_i:_i)+'.jpg');}
 var currentPhoto = 0;
 function openPhoto(i){
   currentPhoto = i;
